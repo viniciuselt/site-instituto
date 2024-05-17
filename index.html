@@ -46,27 +46,27 @@
         </div>
     </nav>
 <p></p>
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="6000">
-            <img src="img/propaganda01.png" class="d-block w-100" alt="01">
-          </div>
-          <div class="carousel-item" data-bs-interval="4000">
-            <img src="img/propaganda02.png" class="d-block w-100" alt="02">
-          </div>
-          <div class="carousel-item"  data-bs-interval="4000">
-            <img src="img/propaganda03.png" class="d-block w-100" alt="03">
-          </div>
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="6000">
+            <img src="img/propaganda01.png" data-mobile-src="img/data-propaganda01.png" class="d-block w-100 img-fluid" alt="01">
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+        <div class="carousel-item" data-bs-interval="4000">
+            <img src="img/propaganda02.png" data-mobile-src="img/data-propaganda02.png" class="d-block w-100 img-fluid" alt="02">
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+            <img src="img/propaganda03.png" data-mobile-src="img/data-propaganda03.png" class="d-block w-100 img-fluid" alt="03">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
     <div class="container-xxl py-5">
         <div class="container">
@@ -126,7 +126,7 @@
                     <p class="mb-4">No Instituto Inter, estamos comprometidos em capacitar nossos alunos para enfrentarem os desafios do mercado de trabalho atual e para alcançarem o sucesso em suas carreiras. Junte-se a nós e dê o próximo passo em direção a um futuro profissional brilhante.</p>
                     <div class="row gy-2 gx-4 mb-4">
                     </div>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Ver Mais</a>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="sobre.html">Ver Mais</a>
                 </div>
             </div>
         </div>
@@ -262,6 +262,28 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        function swapImages() {
+            const images = document.querySelectorAll('.carousel-item img');
+            images.forEach(img => {
+                const mobileSrc = img.getAttribute('data-mobile-src');
+                const desktopSrc = img.getAttribute('src');
+
+                if (window.innerWidth <= 768) {
+                    if (img.src !== mobileSrc) {
+                        img.src = mobileSrc;
+                    }
+                } else {
+                    if (img.src !== desktopSrc) {
+                        img.src = desktopSrc;
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('resize', swapImages);
+        window.addEventListener('load', swapImages);
+    </script>
 </body>
 
 </html>

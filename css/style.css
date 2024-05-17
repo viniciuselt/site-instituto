@@ -4,11 +4,6 @@
     --dark: #660066;
 }
 
-.carousel-item img {
-    width: auto;
-    height: 300px;
-}
-
 .fw-medium {
     font-weight: 600 !important;
 }
